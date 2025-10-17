@@ -1,0 +1,993 @@
+{
+  "name": "ServerUpdates",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -960
+      ],
+      "id": "e7bfcb5f-0283-462d-93fd-a66611b86003",
+      "name": "World News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "executeOnce": false,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "zZIn73IvqupyWLLv",
+          "name": "World News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "## World News",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3088,
+        -960
+      ],
+      "typeVersion": 1,
+      "id": "e94682a4-5128-4632-93e7-c236540cf25e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Aussie News",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3088,
+        -784
+      ],
+      "typeVersion": 1,
+      "id": "980663b0-6ef8-45c7-aaeb-76f63a9d5567",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Finance News",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3088,
+        -608
+      ],
+      "typeVersion": 1,
+      "id": "40e8a517-0f78-4660-aec7-16db37d1fb27",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Tech News",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3088,
+        -432
+      ],
+      "typeVersion": 1,
+      "id": "a9aabc81-106b-4741-bc46-45c19afc647f",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -784
+      ],
+      "id": "769241c2-e24e-4681-aec5-05a62ec7d084",
+      "name": "Aussie News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "aBsNe69yEx39wMhd",
+          "name": "Aussie News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -608
+      ],
+      "id": "7778a7bb-51b2-4b64-b3ea-43e65d596b37",
+      "name": "Finance News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "H0FFNkaOcFsAKp2N",
+          "name": "Finance News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -432
+      ],
+      "id": "4441f369-cc7a-4d20-aaab-072c88443cd3",
+      "name": "Tech News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "a7syX7jbJognXHhL",
+          "name": "Tech News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://www.abc.net.au/news/feed/2942460/rss.xml\", \"https://www.sbs.com.au/news/topic/australia/feed\", \"https://www.9news.com.au/rss\", \"https://www.smh.com.au/rss/national.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -784
+      ],
+      "id": "25b66c8e-446a-41b7-b944-9e1d7a110c1f",
+      "name": "Aussie News Sources"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.bbci.co.uk/news/world/rss.xml\", \"https://moxie.foxnews.com/google-publisher/world.xml\", \"https://feeds.skynews.com/feeds/rss/world.xml\", \"https://feeds.content.dowjones.io/public/rss/RSSWorldNews\", \"https://www.smh.com.au/rss/world.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -960
+      ],
+      "id": "8f600a53-5217-4902-9f56-add8d55b35b6",
+      "name": "World News Sources"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain\", \"https://feeds.content.dowjones.io/public/rss/socialeconomyfeed\", \"https://feeds.content.dowjones.io/public/rss/latestnewsrealestate\", \"https://feeds.content.dowjones.io/public/rss/RSSPersonalFinance\", \"https://www.ft.com/rss/home\", \"https://www.nasdaq.com/feed/nasdaq-original/rss.xml\", \"https://fortune.com/feed/fortune-feeds/?id=3230629\", \"https://www.smh.com.au/rss/business.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -608
+      ],
+      "id": "5a5fef29-65e8-48ed-bd4a-3b93a53098d2",
+      "name": "Finance News Sources"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3904,
+        -720
+      ],
+      "id": "a120c644-5c64-4d07-8ea6-b9290860b482",
+      "name": "Trigger News"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSWSJD\", \"https://feeds.feedburner.com/TheHackersNews\", \"https://www.smh.com.au/rss/technology.xml\", \"https://news.itsfoss.com/rss/\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -432
+      ],
+      "id": "1d0a9694-0755-4f1b-8e70-faa166d2a81f",
+      "name": "Tech News Sources"
+    },
+    {
+      "parameters": {
+        "content": "## Youtube Uploads",
+        "height": 80,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3088,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "dae207e7-629d-4100-adee-bbc082acc12f",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[.](<{{ $json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -160
+      ],
+      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
+      "name": "Tech News1",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "Ek46bB7BrB8Ewq5y",
+          "name": "Youtube Update"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 18
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3904,
+        -160
+      ],
+      "id": "84bb994e-cdc7-41fe-8ad0-21a73c450763",
+      "name": "Trigger News1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "youtube-channels",
+              "value": "[\"UCLklwb0xMIHvvLWJKIrh9lQ\", \"UCaRjpWAd-OYk_n9dO2w5BoQ\", \"UC7YOGHUfC1Tb6E4pudI9STA\", \"UCCJFWxm9fUtB4hPzNvmfcMA\", \"UC2Ivwd5sPzeBPgn24NzM1lQ\", \"UCeeFfhMcJa1kjtfZAGskOCA\", \"UCMiyV_Ib77XLpzHPQH_q0qQ\", \"UC56l7uZA209tlPTVOJiJ8Tw\", \"UCiQo406SKypmtAQXIHdZ6mA\", \"UCNzszbnvQeFzObW0ghk0Ckw\", \"UCHnyfMqiRRG1u-2MsSQLbXA\", \"UCxQKHvKbmSzGMvUrVtJYnUA\", \"UCXuqSBlHAE6Xw-yeJA0Tunw\", \"UCSIvk78tK2TiviLQn4fSHaw\", \"UCw0VJwhVBFDiBZD1gyvZOCA\", \"UCJXa3_WNNmIpewOtCHf3B0g\", \"UCd6vEDS3SOhWbXZrxbrf_bw\", \"UCSJPFQdZwrOutnmSFYtbstA\", \"UC_mneEC0wc29EGGmIsN_xLA\", \"UC9x0AN7BWHpCDHSm9NiJFJQ\", \"UC6biysICWOJ-C3P4Tyeggzg\", \"UCo71RUe6DX4w-Vd47rFLXPg\", \"UCQeRaTukNYft1_6AZPACnog\", \"UCXgNowiGxwwnLeQ7DXTwXPg\", \"UC9-y-6csu5WGm29I7JiwpnA\", \"UCg6gPGh8HU2U01vaFCAsvmQ\", \"UCHASrbCS-niYRn-Y3WX38pA\", \"UCOuGATIAbd2DvzJmUgXn2IQ\", \"UCjSEJkpGbcZhvo0lr-44X_w\", \"UCRBALvAmmqxBX4qiDSpV3PA\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -160
+      ],
+      "id": "7f132d08-a3d3-47cf-a912-560887511279",
+      "name": "Subscriptions"
+    },
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "httpMethod": [
+          "GET"
+        ],
+        "path": "shortcuts",
+        "responseMode": "streaming",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2576,
+        -832
+      ],
+      "id": "42c4c836-7817-4eee-a344-d2ee8a34124b",
+      "name": "Apple Shortcuts webhook",
+      "webhookId": "f52fab17-7d57-4a7d-806b-4a01c3eaa60a",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1616,
+        -928
+      ],
+      "id": "ba508d56-85aa-4a86-b5ea-486e8f7c33a4",
+      "name": "Day Summary",
+      "webhookId": "144ef301-549f-489e-b659-f4a3216930d1",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "ejmLhJGmpFm9gcSM",
+          "name": "Wilson"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Morning Summary",
+        "height": 80,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2592,
+        -960
+      ],
+      "id": "6c426fbd-4dd0-4b5e-ba3b-0f05a6340e25",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "command": "wget -q -O - \"https://api.open-meteo.com/v1/forecast?latitude=-37.8248&longitude=145.0464&daily=sunrise,sunset,daylight_duration,uv_index_max,wind_speed_10m_max&hourly=temperature_2m,rain,precipitation_probability,apparent_temperature,relative_humidity_2m&timezone=Australia%2FSydney&forecast_days=1\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -2384,
+        -832
+      ],
+      "id": "3c112631-4d53-4842-abbb-b09fedbc811c",
+      "name": "Temperature"
+    },
+    {
+      "parameters": {
+        "jsCode": "//- Date -------------------------------------------------------------------------------------------\n\nconst today = new Date();\nconst melbourneOffset = today.getTimezoneOffset() * 60000;\nconst melbourneDate = new Date(today.getTime() + melbourneOffset + (11 * 3600000));\nconst options = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit' };\nconst formattedDate = melbourneDate.toLocaleDateString('en-AU', options).replace(/,/g, '');\n\n\n//- Events and Reminders ---------------------------------------------------------------------------\n\nconst encodedReminders = $('Apple Shortcuts webhook').first().json.headers.reminders;\nconst formattedRemindersString = encodedReminders.split(',')\n        .map(item => decodeURIComponent(item.trim()))\n        .join(',')\n        .slice(1);\n\nconst encodedEvents = $('Apple Shortcuts webhook').first().json.headers.events;\nconst formattedEventsString = encodedEvents.split(',')\n        .map(item => decodeURIComponent(item.trim()))\n        .join(',')\n        .slice(1);\n\n\n//- Weather API ------------------------------------------------------------------------------------\n\nconst inputData = JSON.parse($input.first().json.stdout);\nconst temperatures = inputData.hourly.temperature_2m;\n\nif (temperatures.length === 0) {\n    throw new Error('No temperature data available');\n}\n\nconst lowestTemperature = Math.min(...temperatures);\nconst highestTemperature = Math.max(...temperatures);\n\n// Calculate median temperature\nconst sortedTemperatures = [...temperatures].sort((a, b) => a - b);\nconst mid = Math.floor(sortedTemperatures.length / 2);\nconst medianTemperature = \n    sortedTemperatures.length % 2 !== 0 ? \n    sortedTemperatures[mid] : \n    (sortedTemperatures[mid - 1] + sortedTemperatures[mid]) / 2;\n\nconst apparentTemperature = inputData.hourly.apparent_temperature;\nconst sunriseTime = inputData.daily.sunrise[0];\nconst sunsetTime = inputData.daily.sunset[0];\nconst uvIndex = inputData.daily.uv_index_max[0];\nconst daylightDuration = inputData.daily.daylight_duration[0];\nconst windSpeed = inputData.daily.wind_speed_10m_max[0];\n\n// Format sunrise and sunset times\nconst sunriseFormatted = new Date(sunriseTime * 1000).toLocaleTimeString('en-AU');\nconst sunsetFormatted = new Date(sunsetTime * 1000).toLocaleTimeString('en-AU');\n\n\n//--------------------------------------------------------------------------------------------------\n\nconst prompt = `You are Jarvis like assistant, in similar language but in British English, give me a rundown for my day. Don't call me Stark. It is ${formattedDate} today, in Melbourne, Australia. In brackets, my planned calendar events for today are-${formattedEventsString}. Similarly, my set reminders are-${formattedRemindersString}. Also give me a brief on what kind of climate would be today in continuous conversational tone. Lowest Temp: ${lowestTemperature}C. Highest Temp: ${highestTemperature}C. Median Temp: ${medianTemperature}C. Apparent Temp: ${apparentTemperature[0]}C. Wind Speed: ${windSpeed}kmph. Sunrise Time: ${sunriseFormatted}. Sunset Time: ${sunsetFormatted}. UV Index: ${uvIndex}. Daylight Duration: ${daylightDuration}. Do mention if I should carry umbrella. First word in your response be casual,professional, or dressy based on my calendar feed. Second word should be warm or cold based on temperature reading. Don't offer further support.`;\n\nreturn { json: { prompt } };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2192,
+        -832
+      ],
+      "id": "ee4c2055-5ee3-44ce-9c41-6261a7da7e95",
+      "name": "Generate Prompt"
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "https://api.cerebras.ai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"qwen-3-235b-a22b-instruct-2507\",\n  \"stream\": true,\n  \"max_tokens\": 20000,\n  \"temperature\": 0.7,\n  \"top_p\": 0.8,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"{{ $json.prompt }}\"\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2000,
+        -832
+      ],
+      "id": "26684c53-767e-414a-84a3-feefa8d69418",
+      "name": "AI Call",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "flR5nG8H9xJYb4zn",
+          "name": "Cerebras Cloud"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the response from the previous node\nconst response = items[0].json.data;\n\n// Split the response by new lines to get individual chunks\nconst chunks = response.split('\\n').filter(chunk => chunk.startsWith('data:'));\n\n// Extract the content from each chunk\nconst messages = chunks.map(chunk => {\n    const jsonString = chunk.replace('data: ', '');\n    const jsonData = JSON.parse(jsonString);\n    return jsonData.choices[0].delta.content || '';\n});\n\n// Join the messages to form the complete reply\nlet finalReply = messages.join('');\n\n// Replace all \"\\n\" with \" \\n\"\nfinalReply = finalReply.replace(/\\n/g, ' \\n');\n\n// Split finalReply into words\nconst words = finalReply.trim().split(' ');\n\n// Get the first word as theme and the rest as message\nconst theme = words.shift() || ''; // First word\nconst climate = words.shift() || ''; // Second word\nconst message = words.join(' ').trim();    // Rest of the words\n\n// Return the theme and message\nreturn [{ json: { theme, climate, message } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1808,
+        -832
+      ],
+      "id": "43d78a30-d1fb-4985-a0a4-9e73b840e298",
+      "name": "Parse AI call return"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yaiEVHa7TUxnXLjz",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
+          "cachedResultName": "RSS List Subscribe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}"
+          },
+          "matchingColumns": [
+            "Subscribe-List"
+          ],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "prefix",
+              "displayName": "prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3488,
+        -960
+      ],
+      "id": "da139720-d8c3-48f1-8fcd-8f04cd889e5c",
+      "name": "Subscribe World RSS"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yaiEVHa7TUxnXLjz",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
+          "cachedResultName": "RSS List Subscribe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "prefix",
+              "displayName": "prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3488,
+        -784
+      ],
+      "id": "6ce340fa-37ec-4e06-9b0e-fae5f0896519",
+      "name": "Subscribe Aussie RSS"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yaiEVHa7TUxnXLjz",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
+          "cachedResultName": "RSS List Subscribe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "prefix",
+              "displayName": "prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3488,
+        -608
+      ],
+      "id": "e0fff202-130a-41b5-9de3-4b9496bfdd29",
+      "name": "Subscribe Finance RSS"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yaiEVHa7TUxnXLjz",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
+          "cachedResultName": "RSS List Subscribe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "prefix",
+              "displayName": "prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3488,
+        -432
+      ],
+      "id": "7dd21502-3b9a-4e32-9d39-7173909634ad",
+      "name": "Subscribe Tech RSS"
+    },
+    {
+      "parameters": {
+        "command": "=python3 ./main.py {{ $json.theme }} {{ $json.climate }}",
+        "cwd": "/home/sys23/outfits"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        -1616,
+        -736
+      ],
+      "id": "c719b451-1587-479a-9b4e-b35ae4158715",
+      "name": "run outfit script",
+      "credentials": {
+        "sshPassword": {
+          "id": "Cqvg5uKtAhydbpbW",
+          "name": "sys23 user"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yaiEVHa7TUxnXLjz",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
+          "cachedResultName": "RSS List Subscribe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['youtube-channels'] }}",
+            "prefix": "https://www.youtube.com/feeds/videos.xml?channel_id="
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "prefix",
+              "displayName": "prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3488,
+        -160
+      ],
+      "id": "99806c49-ea1c-47f9-a703-ef3b188a423b",
+      "name": "Subscribe Tech RSS1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Aussie News Sources": {
+      "main": [
+        [
+          {
+            "node": "Subscribe Aussie RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "World News Sources": {
+      "main": [
+        [
+          {
+            "node": "Subscribe World RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finance News Sources": {
+      "main": [
+        [
+          {
+            "node": "Subscribe Finance RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger News": {
+      "main": [
+        [
+          {
+            "node": "World News Sources",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aussie News Sources",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Finance News Sources",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tech News Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tech News Sources": {
+      "main": [
+        [
+          {
+            "node": "Subscribe Tech RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger News1": {
+      "main": [
+        [
+          {
+            "node": "Subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscriptions": {
+      "main": [
+        [
+          {
+            "node": "Subscribe Tech RSS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apple Shortcuts webhook": {
+      "main": [
+        [
+          {
+            "node": "Temperature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Temperature": {
+      "main": [
+        [
+          {
+            "node": "Generate Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Prompt": {
+      "main": [
+        [
+          {
+            "node": "AI Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Day Summary": {
+      "main": [
+        []
+      ]
+    },
+    "AI Call": {
+      "main": [
+        [
+          {
+            "node": "Parse AI call return",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI call return": {
+      "main": [
+        [
+          {
+            "node": "Day Summary",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "run outfit script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe World RSS": {
+      "main": [
+        [
+          {
+            "node": "World News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe Aussie RSS": {
+      "main": [
+        [
+          {
+            "node": "Aussie News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe Finance RSS": {
+      "main": [
+        [
+          {
+            "node": "Finance News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe Tech RSS": {
+      "main": [
+        [
+          {
+            "node": "Tech News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe Tech RSS1": {
+      "main": [
+        [
+          {
+            "node": "Tech News1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Australia/Sydney",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "b43beaa5-ee02-4ace-a133-bda0fa02c4af",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
+  },
+  "id": "vJMtfqUtKu7gZh8V",
+  "tags": []
+}

@@ -1,0 +1,73 @@
+{
+  "name": "exec sys23",
+  "nodes": [
+    {
+      "parameters": {
+        "command": "={{ $json.command }}",
+        "cwd": "/home/sys23"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        -1904,
+        -672
+      ],
+      "id": "68e4028b-1efb-43d1-901d-978bc1b4ebf3",
+      "name": "Execute a command",
+      "credentials": {
+        "sshPassword": {
+          "id": "Cqvg5uKtAhydbpbW",
+          "name": "sys23 user"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "command"
+            }
+          ]
+        }
+      },
+      "id": "bb263dc1-6724-4c12-a8c0-0cae62a7ddca",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -2112,
+        -672
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Execute a command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a command": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "86b15968-9f2d-48e1-b31d-877704834c98",
+  "meta": {
+    "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
+  },
+  "id": "Y6zgEeTAZT7qt6kB",
+  "tags": []
+}

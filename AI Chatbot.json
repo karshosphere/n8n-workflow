@@ -1,0 +1,107 @@
+{
+  "name": "AI Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cerebras.ai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"qwen-3-235b-a22b-instruct-2507\",\n  \"stream\": true,\n  \"max_tokens\": 20000,\n  \"temperature\": 0.7,\n  \"top_p\": 0.8,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      {\n    \"content\": \"You are Jarvis-like Assistant, summarising the day for me in simple British English. {{ $json.prompt }}\"\n}\n\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1792,
+        -1120
+      ],
+      "id": "9b775db6-72a2-4373-a9af-77f9c355314c",
+      "name": "AI Call",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "flR5nG8H9xJYb4zn",
+          "name": "Cerebras Cloud"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "prompt"
+            }
+          ]
+        }
+      },
+      "id": "2e7e137d-c8eb-49a9-a214-bc0643c3aa61",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -2016,
+        -1120
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the response from the previous node\nconst response = items[0].json.data;\n\n// Split the response by new lines to get individual chunks\nconst chunks = response.split('\\n').filter(chunk => chunk.startsWith('data:'));\n\n// Extract the content from each chunk\nconst messages = chunks.map(chunk => {\n    const jsonString = chunk.replace('data: ', '');\n    const jsonData = JSON.parse(jsonString);\n    return jsonData.choices[0].delta.content || '';\n});\n\n// Join the messages to form the complete reply\nconst finalReply = messages.join('');\n\n// Split finalReply into words\nconst words = finalReply.trim().split(' ');\n\n// Get the first word as theme and the rest as message\nconst theme = words.shift() || ''; // First word\nconst message = words.join(' ').trim();    // Rest of the words\n\n// Return the theme and message\nreturn [{ json: { theme, message } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        -1120
+      ],
+      "id": "a44b6dce-90d2-4e48-8ec8-cb45aba161c8",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "AI Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Call": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "36911aa2-87df-4765-be8e-07529ffd3020",
+  "meta": {
+    "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
+  },
+  "id": "XhUkv2QJaaCmzTGB",
+  "tags": []
+}
