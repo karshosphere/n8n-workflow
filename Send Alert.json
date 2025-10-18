@@ -1,0 +1,81 @@
+{
+  "name": "Send Alert",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=## {{ $json['alert-type'] }}: {{ $json.prompt }}\n{{ $json['extra-info'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -2384,
+        -352
+      ],
+      "id": "9b7d01a3-7dfd-4b68-934d-4ad4a7d2ddcf",
+      "name": "Discord",
+      "webhookId": "6218b955-8ff3-4d85-bdf4-f296c83f1adf",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "PWv8peZub8LOP8o1",
+          "name": "Alert Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "alert-type"
+            },
+            {
+              "name": "prompt"
+            },
+            {
+              "name": "extra-info"
+            }
+          ]
+        }
+      },
+      "id": "0580c8f9-c282-4826-9d03-09b93ec14a48",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -2592,
+        -352
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Discord": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b4e7fba8-9863-4e17-ba18-0677585425b5",
+  "meta": {
+    "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
+  },
+  "id": "lJg6fYxLyJy8H1f4",
+  "tags": []
+}

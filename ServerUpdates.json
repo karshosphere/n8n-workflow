@@ -288,25 +288,6 @@
     },
     {
       "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 18
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -3904,
-        -160
-      ],
-      "id": "84bb994e-cdc7-41fe-8ad0-21a73c450763",
-      "name": "Trigger News1"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -688,6 +669,144 @@
     },
     {
       "parameters": {
+        "authentication": "webhook",
+        "content": "=[Link]({{ $json['article-link'] }})",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -160
+      ],
+      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
+      "name": "YouTube Update",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "Ek46bB7BrB8Ewq5y",
+          "name": "Youtube Update"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2576,
+        -352
+      ],
+      "id": "54a1f3e9-7930-47b0-b720-b3114e69ef2e",
+      "name": "Remind Reboot"
+    },
+    {
+      "parameters": {
+        "content": "# Alerts",
+        "height": 80,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2592,
+        -496
+      ],
+      "typeVersion": 1,
+      "id": "cbd6389d-a2b1-48d5-98c2-df10dd316190",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "lJg6fYxLyJy8H1f4",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/lJg6fYxLyJy8H1f4",
+          "cachedResultName": "Send Alert"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "alert-type": "Reminder",
+            "prompt": "Update & Reboot"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "alert-type",
+              "displayName": "alert-type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "extra-info",
+              "displayName": "extra-info",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2384,
+        -352
+      ],
+      "name": "Send Alert",
+      "id": "b8dd4923-d509-4890-92d1-86a734d4a29c"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 18
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3904,
+        -160
+      ],
+      "id": "84bb994e-cdc7-41fe-8ad0-21a73c450763",
+      "name": "Get YouTube Feed"
+    },
+    {
+      "parameters": {
         "workflowId": {
           "__rl": true,
           "value": "yaiEVHa7TUxnXLjz",
@@ -736,30 +855,7 @@
         -160
       ],
       "id": "99806c49-ea1c-47f9-a703-ef3b188a423b",
-      "name": "Subscribe Tech RSS1"
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=[Link]({{ $json['article-link'] }})",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -160
-      ],
-      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
-      "name": "YouTube Update",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "Ek46bB7BrB8Ewq5y",
-          "name": "Youtube Update"
-        }
-      },
-      "onError": "continueRegularOutput"
+      "name": "Pull YouTube"
     }
   ],
   "pinData": {},
@@ -834,22 +930,11 @@
         ]
       ]
     },
-    "Trigger News1": {
-      "main": [
-        [
-          {
-            "node": "Subscriptions",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Subscriptions": {
       "main": [
         [
           {
-            "node": "Subscribe Tech RSS1",
+            "node": "Pull YouTube",
             "type": "main",
             "index": 0
           }
@@ -965,7 +1050,29 @@
         ]
       ]
     },
-    "Subscribe Tech RSS1": {
+    "Remind Reboot": {
+      "main": [
+        [
+          {
+            "node": "Send Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get YouTube Feed": {
+      "main": [
+        [
+          {
+            "node": "Subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pull YouTube": {
       "main": [
         [
           {
@@ -983,7 +1090,7 @@
     "timezone": "Australia/Sydney",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "492bb9d1-0dc7-4e5d-9837-bb4fd8b4f03c",
+  "versionId": "2dce739b-f68d-477b-a8f2-5eb01b41d3c8",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
