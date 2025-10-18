@@ -4,7 +4,7 @@
     {
       "parameters": {
         "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -86,7 +86,7 @@
     {
       "parameters": {
         "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -111,7 +111,7 @@
     {
       "parameters": {
         "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -138,7 +138,7 @@
     {
       "parameters": {
         "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json.link.split('/')[2] }}](<{{ $json.link }}>)",
+        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -285,29 +285,6 @@
       "typeVersion": 1,
       "id": "dae207e7-629d-4100-adee-bbc082acc12f",
       "name": "Sticky Note7"
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[.](<{{ $json.link }}>)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -160
-      ],
-      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
-      "name": "Tech News1",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "Ek46bB7BrB8Ewq5y",
-          "name": "Youtube Update"
-        }
-      },
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -760,6 +737,29 @@
       ],
       "id": "99806c49-ea1c-47f9-a703-ef3b188a423b",
       "name": "Subscribe Tech RSS1"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=[Link]({{ $json['article-link'] }})",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -3296,
+        -160
+      ],
+      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
+      "name": "YouTube Update",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "Ek46bB7BrB8Ewq5y",
+          "name": "Youtube Update"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -969,7 +969,7 @@
       "main": [
         [
           {
-            "node": "Tech News1",
+            "node": "YouTube Update",
             "type": "main",
             "index": 0
           }
@@ -983,7 +983,7 @@
     "timezone": "Australia/Sydney",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "b43beaa5-ee02-4ace-a133-bda0fa02c4af",
+  "versionId": "492bb9d1-0dc7-4e5d-9837-bb4fd8b4f03c",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
