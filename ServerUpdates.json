@@ -3,231 +3,17 @@
   "nodes": [
     {
       "parameters": {
-        "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -960
-      ],
-      "id": "e7bfcb5f-0283-462d-93fd-a66611b86003",
-      "name": "World News",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "retryOnFail": true,
-      "waitBetweenTries": 2000,
-      "executeOnce": false,
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "zZIn73IvqupyWLLv",
-          "name": "World News"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "content": "## World News",
+        "content": "## News Update",
         "height": 80
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -3088,
-        -960
+        -3264,
+        -832
       ],
       "typeVersion": 1,
       "id": "e94682a4-5128-4632-93e7-c236540cf25e",
       "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "content": "## Aussie News",
-        "height": 80
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -3088,
-        -784
-      ],
-      "typeVersion": 1,
-      "id": "980663b0-6ef8-45c7-aaeb-76f63a9d5567",
-      "name": "Sticky Note4"
-    },
-    {
-      "parameters": {
-        "content": "## Finance News",
-        "height": 80
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -3088,
-        -608
-      ],
-      "typeVersion": 1,
-      "id": "40e8a517-0f78-4660-aec7-16db37d1fb27",
-      "name": "Sticky Note5"
-    },
-    {
-      "parameters": {
-        "content": "## Tech News",
-        "height": 80
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -3088,
-        -432
-      ],
-      "typeVersion": 1,
-      "id": "a9aabc81-106b-4741-bc46-45c19afc647f",
-      "name": "Sticky Note6"
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -784
-      ],
-      "id": "769241c2-e24e-4681-aec5-05a62ec7d084",
-      "name": "Aussie News",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "retryOnFail": true,
-      "waitBetweenTries": 2000,
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "aBsNe69yEx39wMhd",
-          "name": "Aussie News"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -608
-      ],
-      "id": "7778a7bb-51b2-4b64-b3ea-43e65d596b37",
-      "name": "Finance News",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "alwaysOutputData": false,
-      "executeOnce": false,
-      "retryOnFail": true,
-      "waitBetweenTries": 2000,
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "H0FFNkaOcFsAKp2N",
-          "name": "Finance News"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=### {{ $json.title }}\n>>> {{ $json.contentSnippet_trim }}\n[{{ $json['article-link'].split('/')[2].split('.')[1]\n }}](<{{ $json['article-link'] }}>)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -432
-      ],
-      "id": "4441f369-cc7a-4d20-aaab-072c88443cd3",
-      "name": "Tech News",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "retryOnFail": true,
-      "waitBetweenTries": 2000,
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "a7syX7jbJognXHhL",
-          "name": "Tech News"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
-              "name": "rss-id",
-              "value": "[\"https://www.abc.net.au/news/feed/2942460/rss.xml\", \"https://www.sbs.com.au/news/topic/australia/feed\", \"https://www.9news.com.au/rss\", \"https://www.smh.com.au/rss/national.xml\"]",
-              "type": "array"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -3680,
-        -784
-      ],
-      "id": "25b66c8e-446a-41b7-b944-9e1d7a110c1f",
-      "name": "Aussie News Sources"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
-              "name": "rss-id",
-              "value": "[\"https://feeds.bbci.co.uk/news/world/rss.xml\", \"https://moxie.foxnews.com/google-publisher/world.xml\", \"https://feeds.skynews.com/feeds/rss/world.xml\", \"https://feeds.content.dowjones.io/public/rss/RSSWorldNews\", \"https://www.smh.com.au/rss/world.xml\"]",
-              "type": "array"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -3680,
-        -960
-      ],
-      "id": "8f600a53-5217-4902-9f56-add8d55b35b6",
-      "name": "World News Sources"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
-              "name": "rss-id",
-              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain\", \"https://feeds.content.dowjones.io/public/rss/socialeconomyfeed\", \"https://feeds.content.dowjones.io/public/rss/latestnewsrealestate\", \"https://feeds.content.dowjones.io/public/rss/RSSPersonalFinance\", \"https://www.ft.com/rss/home\", \"https://www.nasdaq.com/feed/nasdaq-original/rss.xml\", \"https://fortune.com/feed/fortune-feeds/?id=3230629\", \"https://www.smh.com.au/rss/business.xml\"]",
-              "type": "array"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -3680,
-        -608
-      ],
-      "id": "5a5fef29-65e8-48ed-bd4a-3b93a53098d2",
-      "name": "Finance News Sources"
     },
     {
       "parameters": {
@@ -242,34 +28,11 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -3904,
-        -720
+        -3888,
+        -576
       ],
       "id": "a120c644-5c64-4d07-8ea6-b9290860b482",
       "name": "Trigger News"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
-              "name": "rss-id",
-              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSWSJD\", \"https://feeds.feedburner.com/TheHackersNews\", \"https://www.smh.com.au/rss/technology.xml\", \"https://news.itsfoss.com/rss/\"]",
-              "type": "array"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -3680,
-        -432
-      ],
-      "id": "1d0a9694-0755-4f1b-8e70-faa166d2a81f",
-      "name": "Tech News Sources"
     },
     {
       "parameters": {
@@ -279,8 +42,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -3088,
-        -160
+        -3264,
+        -112
       ],
       "typeVersion": 1,
       "id": "dae207e7-629d-4100-adee-bbc082acc12f",
@@ -304,7 +67,7 @@
       "typeVersion": 3.4,
       "position": [
         -3680,
-        -160
+        -128
       ],
       "id": "7f132d08-a3d3-47cf-a912-560887511279",
       "name": "Subscriptions"
@@ -322,8 +85,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -2576,
-        -832
+        -2704,
+        -704
       ],
       "id": "42c4c836-7817-4eee-a344-d2ee8a34124b",
       "name": "Apple Shortcuts webhook",
@@ -339,8 +102,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        -1616,
-        -928
+        -1744,
+        -800
       ],
       "id": "ba508d56-85aa-4a86-b5ea-486e8f7c33a4",
       "name": "Day Summary",
@@ -361,8 +124,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2592,
-        -960
+        -2720,
+        -832
       ],
       "id": "6c426fbd-4dd0-4b5e-ba3b-0f05a6340e25",
       "name": "Sticky Note1"
@@ -374,8 +137,8 @@
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        -2384,
-        -832
+        -2512,
+        -704
       ],
       "id": "3c112631-4d53-4842-abbb-b09fedbc811c",
       "name": "Temperature"
@@ -387,8 +150,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -2192,
-        -832
+        -2320,
+        -704
       ],
       "id": "ee4c2055-5ee3-44ce-9c41-6261a7da7e95",
       "name": "Generate Prompt"
@@ -416,8 +179,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2000,
-        -832
+        -2128,
+        -704
       ],
       "id": "26684c53-767e-414a-84a3-feefa8d69418",
       "name": "AI Call",
@@ -435,217 +198,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1808,
-        -832
+        -1936,
+        -704
       ],
       "id": "43d78a30-d1fb-4985-a0a4-9e73b840e298",
       "name": "Parse AI call return"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "yaiEVHa7TUxnXLjz",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
-          "cachedResultName": "RSS List Subscribe"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Subscribe-List": "={{ $json['rss-id'] }}"
-          },
-          "matchingColumns": [
-            "Subscribe-List"
-          ],
-          "schema": [
-            {
-              "id": "Subscribe-List",
-              "displayName": "Subscribe-List",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "array",
-              "removed": false
-            },
-            {
-              "id": "prefix",
-              "displayName": "prefix",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.3,
-      "position": [
-        -3488,
-        -960
-      ],
-      "id": "da139720-d8c3-48f1-8fcd-8f04cd889e5c",
-      "name": "Subscribe World RSS"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "yaiEVHa7TUxnXLjz",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
-          "cachedResultName": "RSS List Subscribe"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Subscribe-List": "={{ $json['rss-id'] }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Subscribe-List",
-              "displayName": "Subscribe-List",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "array",
-              "removed": false
-            },
-            {
-              "id": "prefix",
-              "displayName": "prefix",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.3,
-      "position": [
-        -3488,
-        -784
-      ],
-      "id": "6ce340fa-37ec-4e06-9b0e-fae5f0896519",
-      "name": "Subscribe Aussie RSS"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "yaiEVHa7TUxnXLjz",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
-          "cachedResultName": "RSS List Subscribe"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Subscribe-List": "={{ $json['rss-id'] }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Subscribe-List",
-              "displayName": "Subscribe-List",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "array",
-              "removed": false
-            },
-            {
-              "id": "prefix",
-              "displayName": "prefix",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.3,
-      "position": [
-        -3488,
-        -608
-      ],
-      "id": "e0fff202-130a-41b5-9de3-4b9496bfdd29",
-      "name": "Subscribe Finance RSS"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "yaiEVHa7TUxnXLjz",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
-          "cachedResultName": "RSS List Subscribe"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Subscribe-List": "={{ $json['rss-id'] }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Subscribe-List",
-              "displayName": "Subscribe-List",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "array",
-              "removed": false
-            },
-            {
-              "id": "prefix",
-              "displayName": "prefix",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.3,
-      "position": [
-        -3488,
-        -432
-      ],
-      "id": "7dd21502-3b9a-4e32-9d39-7173909634ad",
-      "name": "Subscribe Tech RSS"
     },
     {
       "parameters": {
@@ -655,8 +212,8 @@
       "type": "n8n-nodes-base.ssh",
       "typeVersion": 1,
       "position": [
-        -1616,
-        -736
+        -1744,
+        -608
       ],
       "id": "c719b451-1587-479a-9b4e-b35ae4158715",
       "name": "run outfit script",
@@ -666,29 +223,6 @@
           "name": "sys23 user"
         }
       }
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "=[Link]({{ $json['article-link'] }})",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        -3296,
-        -160
-      ],
-      "id": "cac25038-0fc7-4a6a-aba4-baabcdeda98d",
-      "name": "YouTube Update",
-      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "Ek46bB7BrB8Ewq5y",
-          "name": "Youtube Update"
-        }
-      },
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -703,22 +237,22 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2576,
-        -352
+        -2704,
+        -224
       ],
       "id": "54a1f3e9-7930-47b0-b720-b3114e69ef2e",
       "name": "Remind Reboot"
     },
     {
       "parameters": {
-        "content": "# Alerts",
+        "content": "## Alerts",
         "height": 80,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2592,
-        -496
+        -2720,
+        -368
       ],
       "typeVersion": 1,
       "id": "cbd6389d-a2b1-48d5-98c2-df10dd316190",
@@ -780,8 +314,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -2384,
-        -352
+        -2512,
+        -224
       ],
       "name": "Send Alert",
       "id": "b8dd4923-d509-4890-92d1-86a734d4a29c"
@@ -800,7 +334,7 @@
       "typeVersion": 1.2,
       "position": [
         -3904,
-        -160
+        -128
       ],
       "id": "84bb994e-cdc7-41fe-8ad0-21a73c450763",
       "name": "Get YouTube Feed"
@@ -809,16 +343,16 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "yaiEVHa7TUxnXLjz",
+          "value": "yygEYTJLVcpztDRR",
           "mode": "list",
-          "cachedResultUrl": "/workflow/yaiEVHa7TUxnXLjz",
-          "cachedResultName": "RSS List Subscribe"
+          "cachedResultUrl": "/workflow/yygEYTJLVcpztDRR",
+          "cachedResultName": "ScrapeUpdates"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
           "value": {
-            "Subscribe-List": "={{ $json['youtube-channels'] }}",
-            "prefix": "https://www.youtube.com/feeds/videos.xml?channel_id="
+            "Subscribe-List": "={{ $json['rss-id'] }}",
+            "Channel": "finance"
           },
           "matchingColumns": [],
           "schema": [
@@ -833,8 +367,18 @@
               "removed": false
             },
             {
-              "id": "prefix",
-              "displayName": "prefix",
+              "id": "URL-prefix",
+              "displayName": "URL-prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -851,79 +395,376 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        -3488,
-        -160
+        -3472,
+        -512
       ],
-      "id": "99806c49-ea1c-47f9-a703-ef3b188a423b",
-      "name": "Pull YouTube"
+      "id": "a7d929b0-1c28-482d-b8b1-8b51108d1bb6",
+      "name": "Pull Finance"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yygEYTJLVcpztDRR",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yygEYTJLVcpztDRR",
+          "cachedResultName": "ScrapeUpdates"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}",
+            "Channel": "australia"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "URL-prefix",
+              "displayName": "URL-prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3472,
+        -672
+      ],
+      "id": "7f31081c-b108-4370-8010-cddeee01bb37",
+      "name": "Pull Aussie"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yygEYTJLVcpztDRR",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yygEYTJLVcpztDRR",
+          "cachedResultName": "ScrapeUpdates"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}",
+            "Channel": "world"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "URL-prefix",
+              "displayName": "URL-prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3472,
+        -832
+      ],
+      "id": "fa39ea01-8a50-4131-8c1c-347b417f8ad8",
+      "name": "Pull World"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yygEYTJLVcpztDRR",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yygEYTJLVcpztDRR",
+          "cachedResultName": "ScrapeUpdates"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['rss-id'] }}",
+            "Channel": "tech"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "URL-prefix",
+              "displayName": "URL-prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3472,
+        -352
+      ],
+      "id": "e7ac111a-56bc-4945-bd41-17bf0d1fa6ef",
+      "name": "Pull Tech"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSWSJD\", \"https://feeds.feedburner.com/TheHackersNews\", \"https://www.smh.com.au/rss/technology.xml\", \"https://news.itsfoss.com/rss/\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -352
+      ],
+      "id": "1d0a9694-0755-4f1b-8e70-faa166d2a81f",
+      "name": "Tech Sources"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain\", \"https://feeds.content.dowjones.io/public/rss/socialeconomyfeed\", \"https://feeds.content.dowjones.io/public/rss/latestnewsrealestate\", \"https://feeds.content.dowjones.io/public/rss/RSSPersonalFinance\", \"https://www.ft.com/rss/home\", \"https://www.nasdaq.com/feed/nasdaq-original/rss.xml\", \"https://fortune.com/feed/fortune-feeds/?id=3230629\", \"https://www.smh.com.au/rss/business.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -512
+      ],
+      "id": "5a5fef29-65e8-48ed-bd4a-3b93a53098d2",
+      "name": "Finance Sources"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://www.abc.net.au/news/feed/2942460/rss.xml\", \"https://www.sbs.com.au/news/topic/australia/feed\", \"https://www.9news.com.au/rss\", \"https://www.smh.com.au/rss/national.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -672
+      ],
+      "id": "25b66c8e-446a-41b7-b944-9e1d7a110c1f",
+      "name": "Aussie Sources"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
+              "name": "rss-id",
+              "value": "[\"https://feeds.bbci.co.uk/news/world/rss.xml\", \"https://moxie.foxnews.com/google-publisher/world.xml\", \"https://feeds.skynews.com/feeds/rss/world.xml\", \"https://feeds.content.dowjones.io/public/rss/RSSWorldNews\", \"https://www.smh.com.au/rss/world.xml\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3680,
+        -832
+      ],
+      "id": "8f600a53-5217-4902-9f56-add8d55b35b6",
+      "name": "World Sources"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "yygEYTJLVcpztDRR",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/yygEYTJLVcpztDRR",
+          "cachedResultName": "ScrapeUpdates"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribe-List": "={{ $json['youtube-channels'] }}",
+            "Channel": "youtube",
+            "URL-prefix": "https://www.youtube.com/feeds/videos.xml?channel_id="
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subscribe-List",
+              "displayName": "Subscribe-List",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "URL-prefix",
+              "displayName": "URL-prefix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -3472,
+        -128
+      ],
+      "id": "4ebe9349-f3c1-4123-ba38-d0130d0ddd40",
+      "name": "Pull Tech1"
     }
   ],
   "pinData": {},
   "connections": {
-    "Aussie News Sources": {
-      "main": [
-        [
-          {
-            "node": "Subscribe Aussie RSS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "World News Sources": {
-      "main": [
-        [
-          {
-            "node": "Subscribe World RSS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Finance News Sources": {
-      "main": [
-        [
-          {
-            "node": "Subscribe Finance RSS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Trigger News": {
       "main": [
         [
           {
-            "node": "World News Sources",
+            "node": "World Sources",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Aussie News Sources",
+            "node": "Aussie Sources",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Finance News Sources",
+            "node": "Finance Sources",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Tech News Sources",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Tech News Sources": {
-      "main": [
-        [
-          {
-            "node": "Subscribe Tech RSS",
+            "node": "Tech Sources",
             "type": "main",
             "index": 0
           }
@@ -934,7 +775,7 @@
       "main": [
         [
           {
-            "node": "Pull YouTube",
+            "node": "Pull Tech1",
             "type": "main",
             "index": 0
           }
@@ -1006,50 +847,6 @@
         ]
       ]
     },
-    "Subscribe World RSS": {
-      "main": [
-        [
-          {
-            "node": "World News",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Subscribe Aussie RSS": {
-      "main": [
-        [
-          {
-            "node": "Aussie News",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Subscribe Finance RSS": {
-      "main": [
-        [
-          {
-            "node": "Finance News",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Subscribe Tech RSS": {
-      "main": [
-        [
-          {
-            "node": "Tech News",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Remind Reboot": {
       "main": [
         [
@@ -1072,11 +869,44 @@
         ]
       ]
     },
-    "Pull YouTube": {
+    "Tech Sources": {
       "main": [
         [
           {
-            "node": "YouTube Update",
+            "node": "Pull Tech",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finance Sources": {
+      "main": [
+        [
+          {
+            "node": "Pull Finance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aussie Sources": {
+      "main": [
+        [
+          {
+            "node": "Pull Aussie",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "World Sources": {
+      "main": [
+        [
+          {
+            "node": "Pull World",
             "type": "main",
             "index": 0
           }
@@ -1090,7 +920,7 @@
     "timezone": "Australia/Sydney",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "2dce739b-f68d-477b-a8f2-5eb01b41d3c8",
+  "versionId": "dfb7ca8e-7a11-48e8-bd29-46a8a5588a49",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"

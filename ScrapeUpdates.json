@@ -1,0 +1,691 @@
+{
+  "name": "ScrapeUpdates",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "=test",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "244328db-51da-4071-8c51-cd36214e1642"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1b69225e-49ec-493e-b28c-e287ea06a422",
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "world",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f8427161-b127-4113-9bb6-04a0d86977f0",
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "australia",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7569d366-0deb-4fea-99e2-af6975083530",
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "finance",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bca8c893-7092-4ef3-87ab-b8081d8d772c",
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "tech",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "78398aaf-d85a-4b26-83ce-d5723bb70790",
+                    "leftValue": "={{ $('Start').item.json.Channel }}",
+                    "rightValue": "youtube",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -2544,
+        -2192
+      ],
+      "id": "df26b3ce-0945-421a-afc3-b7eee0179000",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $('Delay').item.json.title }}\n>>> {{ $('Delay').item.json.contentSnippet }}\n[{{ $('Host').item.json.source }}](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1728,
+        -1840
+      ],
+      "id": "ae2c1dfb-c8c6-41ee-bcfb-d04e6844699f",
+      "name": "Aussie News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "aBsNe69yEx39wMhd",
+          "name": "Aussie News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $('Delay').item.json.title }}\n>>> {{ $('Delay').item.json.contentSnippet }}\n[{{ $('Host').item.json.source }}](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1552,
+        -1840
+      ],
+      "id": "18f57265-a66e-4dc0-a1cb-29ee26016dd2",
+      "name": "Finance News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "H0FFNkaOcFsAKp2N",
+          "name": "Finance News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $('Delay').item.json.title }}\n>>> {{ $('Delay').item.json.contentSnippet }}\n[{{ $('Host').item.json.source }}](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1376,
+        -1840
+      ],
+      "id": "12b8bc47-25a4-43d1-a88b-82212a872a93",
+      "name": "Tech News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "a7syX7jbJognXHhL",
+          "name": "Tech News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $('Delay').item.json.title }}\n>>> {{ $('Delay').item.json.contentSnippet }}\n[{{ $('Host').item.json.source }}](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1904,
+        -1840
+      ],
+      "id": "7bdc221d-eba7-493b-a26d-ecc823958165",
+      "name": "World News",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "zZIn73IvqupyWLLv",
+          "name": "World News"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=[Link](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        -1840
+      ],
+      "id": "c28eecec-cd88-40c4-93d0-7f0da46169fa",
+      "name": "YouTube Update",
+      "webhookId": "9b4bc825-92da-4702-be8d-ecbd42c5af79",
+      "retryOnFail": true,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "Ek46bB7BrB8Ewq5y",
+          "name": "Youtube Update"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "['Subscribe-List']",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -3104,
+        -2400
+      ],
+      "id": "277d02ea-1421-46e8-b0b9-f1161a21afcb",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "type": "random"
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        -2464,
+        -2400
+      ],
+      "id": "57a64e2a-5582-4e90-8106-c0bf58819cf8",
+      "name": "Sort"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Start').item.json.prefix }}{{ $json['[\\'Subscribe-List\\']'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        -2944,
+        -2400
+      ],
+      "id": "ae41850f-add9-4b04-a60c-710a872182af",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c406f168-ad9e-4dd1-b7e5-b0c82bdbc710",
+              "leftValue": "={{ $json.isoDate.toDateTime().toLocal().format('yyyy-MM-dd') }}",
+              "rightValue": "={{$now.minus({ days: 1 }).format('yyyy-MM-dd')}}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "afterOrEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2784,
+        -2400
+      ],
+      "id": "e654daa5-72a9-4540-ba81-2b3ba3cbe201",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "operation": "clearDeduplicationHistory",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        -2624,
+        -2400
+      ],
+      "id": "50e2b744-895d-4a44-92e4-50f5f4a1de2f",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "Subscribe-List",
+              "type": "array"
+            },
+            {
+              "name": "URL-prefix"
+            },
+            {
+              "name": "Channel"
+            }
+          ]
+        }
+      },
+      "id": "3eea7090-9287-4770-aa8e-7717548a82c0",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -3360,
+        -2480
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=### {{ $('Delay').item.json.title }}\n>>> {{ $('Delay').item.json.contentSnippet }}\n[{{ $('Host').item.json.source }}](<{{ $('Delay').item.json.link }}>)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -2080,
+        -1840
+      ],
+      "id": "d4a11885-bca3-451d-b52b-577ec0896a2e",
+      "name": "Test Intern",
+      "webhookId": "d03adb82-29e7-4766-977c-b83a909cd3f0",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "rLtoZYtt1xNaqoY8",
+          "name": "Test Intern"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "amount": "=1"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -2896,
+        -2128
+      ],
+      "id": "a1efed8d-223c-42c6-a1d3-1a561c760f3e",
+      "name": "Delay",
+      "webhookId": "60f78e37-14c2-42ab-a8e3-79e996d9b920"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -3104,
+        -2144
+      ],
+      "id": "549aeac1-ebf5-4a22-9263-db01db6be986",
+      "name": "Loop Results"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fullDomain = $json.link.split('/')[2];\n\nconst host = fullDomain.split('.')[0] === 'www' ? fullDomain.split('.')[1] : fullDomain.split('.')[0];\n\nreturn { json: { source: host } };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2720,
+        -2128
+      ],
+      "id": "ca00c12d-58a9-4f30-a43c-476b65cacf7c",
+      "name": "Host"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Test Intern",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "World News",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aussie News",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Finance News",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tech News",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "YouTube Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tech News": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finance News": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aussie News": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "World News": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Update": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Intern": {
+      "main": [
+        [
+          {
+            "node": "Loop Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay": {
+      "main": [
+        [
+          {
+            "node": "Host",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Results": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Host": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a8a30a0c-3d44-4fab-9b8d-828d90a3f202",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
+  },
+  "id": "yygEYTJLVcpztDRR",
+  "tags": []
+}
