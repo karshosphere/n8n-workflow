@@ -260,7 +260,7 @@
     {
       "parameters": {
         "authentication": "webhook",
-        "content": "=[Link](<{{ $('Delay').item.json.link }}>)",
+        "content": "=[Link]({{ $('Delay').item.json.link }})",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -310,7 +310,7 @@
     },
     {
       "parameters": {
-        "url": "={{ $('Start').item.json.prefix }}{{ $json['[\\'Subscribe-List\\']'] }}",
+        "url": "={{ $('Start').item.json['URL-prefix'] }}{{ $json['[\\'Subscribe-List\\']'] }}",
         "options": {}
       },
       "type": "n8n-nodes-base.rssFeedRead",
@@ -391,8 +391,8 @@
       "name": "Start",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        -3360,
-        -2480
+        -3312,
+        -2512
       ]
     },
     {
@@ -681,7 +681,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "a8a30a0c-3d44-4fab-9b8d-828d90a3f202",
+  "versionId": "69e95a3d-9a12-4ac6-8f0c-483e03575a48",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
