@@ -293,7 +293,9 @@
         -2400
       ],
       "id": "277d02ea-1421-46e8-b0b9-f1161a21afcb",
-      "name": "Split Out"
+      "name": "Split Out",
+      "executeOnce": false,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -320,7 +322,9 @@
         -2400
       ],
       "id": "ae41850f-add9-4b04-a60c-710a872182af",
-      "name": "RSS Read"
+      "name": "RSS Read",
+      "retryOnFail": false,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -353,11 +357,13 @@
         -2400
       ],
       "id": "e654daa5-72a9-4540-ba81-2b3ba3cbe201",
-      "name": "Filter"
+      "name": "Filter",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "operation": "clearDeduplicationHistory",
+        "compare": "selectedFields",
+        "fieldsToCompare": "link",
         "options": {}
       },
       "type": "n8n-nodes-base.removeDuplicates",
@@ -681,7 +687,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "69e95a3d-9a12-4ac6-8f0c-483e03575a48",
+  "versionId": "e6d3c356-1236-4853-8fb1-cf522ededf17",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"

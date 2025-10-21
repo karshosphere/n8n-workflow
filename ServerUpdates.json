@@ -333,7 +333,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -3904,
+        -3888,
         -128
       ],
       "id": "84bb994e-cdc7-41fe-8ad0-21a73c450763",
@@ -399,7 +399,8 @@
         -512
       ],
       "id": "a7d929b0-1c28-482d-b8b1-8b51108d1bb6",
-      "name": "Pull Finance"
+      "name": "Pull Finance",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -461,7 +462,8 @@
         -672
       ],
       "id": "7f31081c-b108-4370-8010-cddeee01bb37",
-      "name": "Pull Aussie"
+      "name": "Pull Aussie",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -523,7 +525,8 @@
         -832
       ],
       "id": "fa39ea01-8a50-4131-8c1c-347b417f8ad8",
-      "name": "Pull World"
+      "name": "Pull World",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -585,7 +588,8 @@
         -352
       ],
       "id": "e7ac111a-56bc-4945-bd41-17bf0d1fa6ef",
-      "name": "Pull Tech"
+      "name": "Pull Tech",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -920,7 +924,7 @@
     "timezone": "Australia/Sydney",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "b18924a0-1401-4547-b1ed-03bec366d9cd",
+  "versionId": "897eaa3b-88de-4419-9d89-15e09e5391e2",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
