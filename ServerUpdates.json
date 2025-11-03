@@ -598,7 +598,7 @@
             {
               "id": "bab96885-2ded-4934-a03c-c3731f624bd2",
               "name": "rss-id",
-              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSWSJD\", \"https://feeds.feedburner.com/TheHackersNews\", \"https://www.smh.com.au/rss/technology.xml\", \"https://news.itsfoss.com/rss/\"]",
+              "value": "[\"https://feeds.content.dowjones.io/public/rss/RSSWSJD\", \"https://feeds.feedburner.com/TheHackersNews\", \"https://www.smh.com.au/rss/technology.xml\", \"https://news.itsfoss.com/rss/\", \"https://news.ycombinator.com/rss\"]",
               "type": "array"
             }
           ]
@@ -924,7 +924,7 @@
     "timezone": "Australia/Sydney",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "897eaa3b-88de-4419-9d89-15e09e5391e2",
+  "versionId": "d81f5a18-564d-49d0-9f86-f3d1dc104f0c",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e756d47592edd19f185d238e2e7478669d735875644e429c83c68ea27b73b843"
